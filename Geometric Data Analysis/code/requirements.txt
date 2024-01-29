@@ -1,0 +1,8 @@
+# Linear algebra and matrix manipulation
+numpy
+scipy
+numba
+matplotlib
+
+# Arguments parsing
+argparse

@@ -1,0 +1,6 @@
+env/
+#data/
+dolfin/
+dolfinx/
+__pycache__/
+*.blend
