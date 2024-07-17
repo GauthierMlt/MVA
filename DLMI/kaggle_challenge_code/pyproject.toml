@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "dlmi_challenge"
+version = "0.0.1"
+dependencies = [
+    "numpy",
+    "hydra-core",
+    "mlflow",
+    "lightning",
+    "ray[tune]",
+    "torchvision",
+    "scikit-learn",
+    "matplotlib",
+    "torch",
+    "jupyter"
+]
+
+description = "Package containing experiments for the Deep Learning for Medical Imaging Kaggle challenge"
+readme = "README.md"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+
+[project.scripts]
+dlmi_train = "dlmi:launch"
+mlflow_run = "dlmi:run_local_mlflow"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,36 @@
+
+model:
+  _target_: dlmi.models.mlp_model.MLPModel 
+
+criterion:
+  _target_: torch.nn.CrossEntropyLoss
+
+optimizer:
+  _target_: torch.optim.Adam
+
+dataset_type: "MILDataset"
+
+# Training parameters
+train: 
+  lr: 1e-2
+  batch_size : 5
+  num_epochs: 20
+  weight_decay: 0
+
+# Experiment parameters
+exp: 
+  name: "Classification"
+  data_path: "/data/raw/" 
+  checkpoint: "models/linear"
+  seed: 10
+  tune:  # Hyperparameter tuning
+    enabled: false
+    num_samples: 2
+  augment: true  # Data augmentation
+
+# mlflow parameters
+mlflow:
+  runname: ${exp.name} # Take the value of exp.name
+
+job:
+    chdir: true
